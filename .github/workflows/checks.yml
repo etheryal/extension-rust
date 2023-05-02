@@ -1,0 +1,99 @@
+on:
+  push:
+    paths-ignore:
+      - ".github/**"
+      - ".vscode/**"
+      - ".idea/**"
+
+jobs:
+  cargo-deny:
+    name: Validate licenses
+    runs-on: ubuntu-22.04
+    strategy:
+      matrix:
+        checks:
+          - bans licenses sources
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v3
+      - uses: EmbarkStudios/cargo-deny-action@v1
+        with:
+          command: check ${{ matrix.checks }}
+  format:
+    name: Validate formatting
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+      - uses: FrancisRussell/ferrous-actions@v0.1.0-beta.2
+        name: Install Rustup
+        with:
+          command: install-rustup
+          toolchain: nightly
+          profile: default
+          default: true
+      - uses: FrancisRussell/ferrous-actions@v0.1.0-beta.2
+        name: Cargo fmt
+        with:
+          command: cargo fmt
+          args: --all -- --check
+          toolchain: nightly
+          annotations: true
+      - uses: FrancisRussell/ferrous-actions@v0.1.0-beta.2
+        name: Install Cargo Sort
+        with:
+          command: cargo install
+          args: cargo-sort
+          toolchain: nightly
+          annotations: true
+      - uses: FrancisRussell/ferrous-actions@v0.1.0-beta.2
+        name: Check that `Cargo.toml` is sorted
+        with:
+          command: cargo sort
+          args: -wgc
+          toolchain: nightly
+          annotations: true
+  clippy:
+    name: Lint with Clippy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: FrancisRussell/ferrous-actions@v0.1.0-beta.2
+        name: Install Rustup
+        with:
+          command: install-rustup
+          toolchain: nightly
+          profile: default
+          default: true
+      - uses: FrancisRussell/ferrous-actions@v0.1.0-beta.2
+        name: Cargo clippy
+        with:
+          command: cargo clippy
+          toolchain: nightly
+          args: --workspace --all-features -- -D clippy::manual_let_else -D clippy::unwrap_used
+          annotations: true
+  tests:
+    name: Unit, integration and doc tests
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+      - uses: FrancisRussell/ferrous-actions@v0.1.0-beta.2
+        name: Install Rustup
+        with:
+          command: install-rustup
+          toolchain: nightly
+          profile: default
+          default: true
+      - uses: FrancisRussell/ferrous-actions@v0.1.0-beta.2
+        name: Install Cargo Wasi
+        with:
+          command: cargo install
+          args: cargo-wasi
+          toolchain: nightly
+          annotations: true
+      - uses: FrancisRussell/ferrous-actions@v0.1.0-beta.2
+        name: Cargo wasi test
+        with:
+          command: cargo wasi test
+          toolchain: nightly
+          args: --workspace --all-targets
+          annotations: true

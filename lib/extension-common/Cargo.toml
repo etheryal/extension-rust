@@ -1,0 +1,15 @@
+[package]
+name = "etheryal-extension-common"
+version = { workspace = true }
+authors = { workspace = true }
+edition = { workspace = true }
+license = { workspace = true }
+
+[dependencies]
+enum_dispatch = "0.3.11"
+etheryal-extension-derive = { workspace = true }
+etheryal-identifier = { workspace = true }
+getset = "0.1.2"
+semver = { version = "1.0.17", features = ["serde"] }
+serde = { version = "1.0.160", features = ["derive"] }
+typed-builder = "0.14.0"

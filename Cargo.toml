@@ -1,0 +1,18 @@
+[workspace]
+resolver = "2"
+members = ["lib/*"]
+
+[workspace.package]
+version = "0.1.0-nightly"
+authors = ["Celeste Peláez <celeste@etheryal.net>"]
+edition = "2021"
+license = "MIT OR Apache-2.0"
+
+[workspace.dependencies]
+bevy_app = { git = "https://github.com/KernelFreeze/bevy.git", branch = "feat/browser-feature-gate", default-features = false }
+bevy_ecs = { git = "https://github.com/KernelFreeze/bevy.git", branch = "feat/browser-feature-gate", default-features = false }
+bevy_log = { git = "https://github.com/KernelFreeze/bevy.git", branch = "feat/browser-feature-gate", default-features = false }
+etheryal-identifier = { path = "lib/identifier" }
+etheryal-extension-common = { path = "lib/extension-common" }
+etheryal-extension-derive = { path = "lib/extension-derive" }
+etheryal-extension-sys = { path = "lib/extension-sys" }

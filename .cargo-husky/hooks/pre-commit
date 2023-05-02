@@ -1,0 +1,14 @@
+#!/bin/sh
+set -e
+
+echo '+cargo wasi test'
+cargo wasi test --all-targets --workspace
+
+echo '+cargo clippy'
+cargo clippy --workspace --all-features -- -D clippy::manual_let_else -D clippy::unwrap_used
+
+echo '+cargo fmt'
+cargo fmt --all -- --check
+
+echo '+cargo sort'
+cargo sort -wgc
