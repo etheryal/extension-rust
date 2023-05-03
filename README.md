@@ -4,14 +4,14 @@ A framework for creating WebAssembly (WASI) modules for Etheryal extensions in t
 
 If you don't need advanced functionality, you can also create a simple extension with an `etheryal.toml` file and the [data-oriented extension system](https://docs.etheryal.net/extensions).
 
-## Getting Started
+# Getting Started
 
-### Prerequisites
+## Prerequisites
 
 - [Rust](https://www.rust-lang.org/tools/install)
 - [Cargo WASI](https://bytecodealliance.github.io/cargo-wasi/install.html)
 
-### Installation
+## Installation
 
 1. Add the following to your `Cargo.toml` file:
 
@@ -100,3 +100,14 @@ If you don't need advanced functionality, you can also create a simple extension
 5. Copy your extension module to the directory you created in step 4. You can find your compiled `.wasm` module in the `target/wasm32-wasi/release` directory.
 
 6. Start your Etheryal server and enable your extension module in the `extensions.toml` file.
+
+# License
+
+Except where noted (below and/or in individual files), all code in this repository is dual-licensed under either:
+
+* MIT License ([LICENSE-MIT](LICENSE-MIT) or [http://opensource.org/licenses/MIT](http://opensource.org/licenses/MIT))
+* Apache License, Version 2.0 ([LICENSE-APACHE](LICENSE-APACHE) or [http://www.apache.org/licenses/LICENSE-2.0](http://www.apache.org/licenses/LICENSE-2.0))
+
+# Contributing
+
+When interacting with the open-source Etheryal projects, please follow our [Code of Conduct](CODE_OF_CONDUCT.md). If you'd like to contribute to this project, please read the [Contributing Guide](CONTRIBUTING.md).
