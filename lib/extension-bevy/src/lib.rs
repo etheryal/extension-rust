@@ -1,4 +1,5 @@
-#![doc = include_str!("../../../README.md")]
+//! A Bevy plugin that provides utilities for creating etheryal WebAssembly
+//! extensions.
 #![deny(missing_docs, clippy::missing_safety_doc)]
 use std::any::{type_name, TypeId};
 
@@ -9,12 +10,10 @@ use crossbeam_queue::SegQueue;
 use error::ExtensionError;
 use etheryal_extension_common::message::debug::Pong;
 use etheryal_extension_common::message::events::ShutdownGuest;
-use etheryal_extension_common::message::GuestMessageEnum;
-pub use etheryal_extension_common::message::{GuestMessage, HostMessage};
-pub use etheryal_extension_common::ExtensionModuleInfo;
+use etheryal_extension_common::message::{GuestMessage, GuestMessageEnum};
+use etheryal_extension_common::ExtensionModuleInfo;
 pub use event::ExtensionEvent;
 pub use guest::ExtensionGuest;
-pub use semver::{Version, VersionReq};
 use tracing::{debug, warn};
 
 mod error;
@@ -22,7 +21,7 @@ mod event;
 mod guest;
 mod systems;
 
-/// A Bevy plugin that provides utilities for creating Etheryal extensions.
+/// A Bevy plugin that provides utilities for creating etheryal extensions.
 pub struct EtheryalExtensionPlugin {
     guest_info: ExtensionModuleInfo,
 }

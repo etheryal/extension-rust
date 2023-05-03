@@ -1,10 +1,9 @@
-//! Common types and traits for Etheryal extension modules and the Etheryal
+//! Common types and traits for etheryal extension modules and the etheryal
 //! extension host
 #![deny(missing_docs, clippy::missing_safety_doc)]
 use etheryal_identifier::NamespacedIdentifier;
 use getset::Getters;
-pub use semver::Version;
-use semver::VersionReq;
+use semver::{Version, VersionReq};
 use serde::{Deserialize, Serialize};
 use typed_builder::TypedBuilder;
 

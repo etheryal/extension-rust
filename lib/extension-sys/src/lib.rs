@@ -1,4 +1,4 @@
-//! This crate provides raw interfaces between the Etheryal extension guest and
+//! This crate provides raw interfaces between the etheryal extension guest and
 //! host.
 #![deny(missing_docs)]
 

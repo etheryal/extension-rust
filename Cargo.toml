@@ -13,6 +13,31 @@ bevy_app = { git = "https://github.com/KernelFreeze/bevy.git", branch = "feat/br
 bevy_ecs = { git = "https://github.com/KernelFreeze/bevy.git", branch = "feat/browser-feature-gate", default-features = false }
 bevy_log = { git = "https://github.com/KernelFreeze/bevy.git", branch = "feat/browser-feature-gate", default-features = false }
 etheryal-identifier = { path = "lib/identifier" }
+etheryal-extension-bevy = { path = "lib/extension-bevy" }
 etheryal-extension-common = { path = "lib/extension-common" }
 etheryal-extension-derive = { path = "lib/extension-derive" }
 etheryal-extension-sys = { path = "lib/extension-sys" }
+semver = { version = "1.0.17" }
+
+[package]
+name = "etheryal-extension"
+version = { workspace = true }
+authors = { workspace = true }
+edition = { workspace = true }
+license = { workspace = true }
+
+[dependencies]
+etheryal-extension-bevy = { workspace = true }
+etheryal-extension-common = { workspace = true }
+etheryal-identifier = { workspace = true }
+semver = { workspace = true }
+
+[dev-dependencies]
+bevy_app = { workspace = true }
+bevy_ecs = { workspace = true }
+bevy_log = { workspace = true }
+
+[dev-dependencies.cargo-husky]
+version = "1"
+default-features = false
+features = ["user-hooks"]

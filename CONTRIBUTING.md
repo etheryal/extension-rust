@@ -1,6 +1,6 @@
-# Contributing to Etheryal projects
+# Contributing to etheryal projects
 
-We extend a warm welcome and express our gratitude for your interest in contributing to Etheryal's open source projects. Your participation plays a crucial role in bringing our vision to life and benefiting our community of users.
+We extend a warm welcome and express our gratitude for your interest in contributing to etheryal's open source projects. Your participation plays a crucial role in bringing our vision to life and benefiting our community of users.
 
 To ensure a smooth and efficient contribution process for all parties involved, we kindly ask that you read and adhere to the guidelines provided. This not only demonstrates your willingness to value the time of our dedicated developers but also helps us address your concerns promptly and provide constructive feedback on your pull requests. In turn, we commit to treating your contributions with the utmost care and attention they deserve.
 
