@@ -82,6 +82,8 @@ jobs:
           toolchain: nightly
           profile: default
           default: true
+      - name: Install Wasmtime
+        run: curl https://wasmtime.dev/install.sh -sSf | bash
       - uses: FrancisRussell/ferrous-actions@v0.1.0-beta.2
         name: Install Cargo Wasi
         with:
