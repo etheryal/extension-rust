@@ -52,7 +52,6 @@ If you don't need advanced functionality, you can also create a simple extension
             ])
             .build();
         App::new()
-            .add_plugin(LogPlugin::default())
             .add_plugin(ScheduleRunnerPlugin::default())
             .add_plugin(etheryalExtensionPlugin::new(extension_info))
             .add_systems(Startup, setup)
@@ -62,7 +61,7 @@ If you don't need advanced functionality, you can also create a simple extension
 
     /// This system will be called when the extension starts
     fn setup(guest: Res<ExtensionGuest>) {
-        info!("Extension guest started");
+        println!("Extension guest started");
 
         // Send a ping message to the etheryal server
         guest.send_message(Ping).ok();
@@ -72,7 +71,7 @@ If you don't need advanced functionality, you can also create a simple extension
     /// the etheryal server
     fn events(mut events: EventReader<ExtensionEvent<Pong>>, guest: Res<ExtensionGuest>) {
         for _ in events.iter() {
-            info!("Received pong message");
+            println!("Received pong message");
 
             // Request the etheryal server to shutdown
             guest.send_message(ShutdownHost).ok();
@@ -99,7 +98,7 @@ If you don't need advanced functionality, you can also create a simple extension
 
 6. Copy your extension module to the directory you created in step 4. You can find your compiled `.wasm` module in the `target/wasm32-wasi/release` directory.
 
-7. Start your etheryal server and enable your extension module in the `extensions.toml` file.
+7. Start your etheryal server.
 
 # License
 

@@ -9,9 +9,8 @@ edition = "2021"
 license = "MIT OR Apache-2.0"
 
 [workspace.dependencies]
-bevy_app = { git = "https://github.com/KernelFreeze/bevy.git", branch = "feat/browser-feature-gate", default-features = false }
-bevy_ecs = { git = "https://github.com/KernelFreeze/bevy.git", branch = "feat/browser-feature-gate", default-features = false }
-bevy_log = { git = "https://github.com/KernelFreeze/bevy.git", branch = "feat/browser-feature-gate", default-features = false }
+bevy_app = { git = "https://github.com/bevyengine/bevy.git", default-features = false }
+bevy_ecs = { git = "https://github.com/bevyengine/bevy.git", default-features = false }
 etheryal-identifier = { path = "lib/identifier" }
 etheryal-extension-bevy = { path = "lib/extension-bevy" }
 etheryal-extension-common = { path = "lib/extension-common" }
@@ -35,7 +34,6 @@ semver = { workspace = true }
 [dev-dependencies]
 bevy_app = { workspace = true }
 bevy_ecs = { workspace = true }
-bevy_log = { workspace = true }
 
 [dev-dependencies.cargo-husky]
 version = "1"

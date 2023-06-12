@@ -1,8 +1,9 @@
+use bevy_ecs::prelude::*;
 use derive_more::Deref;
 use etheryal_extension_common::message::GuestMessage;
 
 /// An event that occurs in an extension
-#[derive(Debug, Deref)]
+#[derive(Debug, Deref, Event)]
 pub struct ExtensionEvent<T>
 where
     T: GuestMessage, {

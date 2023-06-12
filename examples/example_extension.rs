@@ -1,7 +1,6 @@
 use bevy_app::{App, ScheduleRunnerPlugin, Startup, Update};
 use bevy_ecs::event::EventReader;
 use bevy_ecs::system::Res;
-use bevy_log::{info, LogPlugin};
 use etheryal_extension::common::message::debug::{Ping, Pong};
 use etheryal_extension::common::message::events::ShutdownHost;
 use etheryal_extension::prelude::*;
@@ -28,7 +27,6 @@ pub fn main() {
         ])
         .build();
     App::new()
-        .add_plugin(LogPlugin::default())
         .add_plugin(ScheduleRunnerPlugin::default())
         .add_plugin(EtheryalExtensionPlugin::new(extension_info))
         .add_systems(Startup, setup)
@@ -38,7 +36,7 @@ pub fn main() {
 
 /// This system will be called when the extension starts
 fn setup(guest: Res<ExtensionGuest>) {
-    info!("Extension guest started");
+    println!("Extension guest started");
 
     // Send a ping message to the etheryal server
     guest.send_message(Ping).ok();
@@ -48,7 +46,7 @@ fn setup(guest: Res<ExtensionGuest>) {
 /// the etheryal server
 fn events(mut events: EventReader<ExtensionEvent<Pong>>, guest: Res<ExtensionGuest>) {
     for _ in events.iter() {
-        info!("Received pong message");
+        println!("Received pong message");
 
         // Request the etheryal server to shutdown
         guest.send_message(ShutdownHost).ok();
