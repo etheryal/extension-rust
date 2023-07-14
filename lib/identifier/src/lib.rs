@@ -5,7 +5,6 @@
 #![deny(missing_docs, clippy::missing_safety_doc)]
 use std::fmt;
 
-use bevy_ecs::prelude::*;
 use derive_more::{Display, Into};
 use getset::{Getters, Setters};
 use serde::de::{MapAccess, Visitor};
@@ -33,18 +32,7 @@ pub enum IdentifierError {
 /// An [Identifier] with an additional namespace field to prevent name
 /// collisions
 #[derive(
-    Serialize,
-    Debug,
-    Clone,
-    PartialEq,
-    Eq,
-    Hash,
-    PartialOrd,
-    Ord,
-    Component,
-    Display,
-    Getters,
-    Setters,
+    Serialize, Debug, Clone, PartialEq, Eq, Hash, PartialOrd, Ord, Display, Getters, Setters,
 )]
 #[display(fmt = "{namespace}:{value}")]
 #[getset(get = "pub", set = "pub")]

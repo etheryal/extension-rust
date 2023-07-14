@@ -27,8 +27,10 @@ pub fn main() {
         ])
         .build();
     App::new()
-        .add_plugin(ScheduleRunnerPlugin::default())
-        .add_plugin(EtheryalExtensionPlugin::new(extension_info))
+        .add_plugins((
+            ScheduleRunnerPlugin::default(),
+            EtheryalExtensionPlugin::new(extension_info),
+        ))
         .add_systems(Startup, setup)
         .add_systems(Update, events)
         .run();
