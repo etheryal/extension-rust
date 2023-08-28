@@ -12,4 +12,4 @@ etheryal-identifier = { workspace = true }
 getset = "0.1.2"
 semver = { workspace = true, features = ["serde"] }
 serde = { version = "1.0.160", features = ["derive"] }
-typed-builder = "0.14.0"
+typed-builder = "0.16.0"
